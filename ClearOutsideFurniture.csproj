@@ -8,56 +8,78 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <!-- Change this to your PlateUp installation directory -->
-    <PlateUpDir>E:\Steam\steamapps\common\PlateUp\PlateUp\</PlateUpDir>
+    <!-- 
+      Set your PlateUp installation directory here.
+      You can also set this as an environment variable PLATEUP_DIR
+      Common locations:
+        Windows: C:\Program Files (x86)\Steam\steamapps\common\PlateUp\PlateUp
+        Linux: ~/.steam/steam/steamapps/common/PlateUp/PlateUp
+    -->
+    <PlateUpDir Condition="'$(PLATEUP_DIR)' != ''">$(PLATEUP_DIR)</PlateUpDir>
+    <PlateUpDir Condition="'$(PLATEUP_DIR)' == ''">C:\Program Files (x86)\Steam\steamapps\common\PlateUp\PlateUp</PlateUpDir>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- PlateUp Game References -->
     <Reference Include="Kitchen.Common">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.Common.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.FranchiseBuilderMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.FranchiseBuilderMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.FranchiseBuilderMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.FranchiseMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.FranchiseMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.FranchiseMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.GameData">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.GameData.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.GameData.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.Layouts">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.Layouts.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.Layouts.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.MessagePack">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.MessagePack.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.MessagePack.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.MessagePack.Generated">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.MessagePack.Generated.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.MessagePack.Generated.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.Networking">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.Networking.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.Networking.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.Persistence">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.Persistence.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.Persistence.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.PostgameMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.PostgameMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.PostgameMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.ResearchMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.ResearchMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.ResearchMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.RestaurantMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.RestaurantMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.RestaurantMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.ServiceCreator">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.ServiceCreator.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.ServiceCreator.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen.TutorialMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Kitchen.TutorialMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.TutorialMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="KitchenMode">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\KitchenMode.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\KitchenMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Entities">
       <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Entities.dll</HintPath>
@@ -67,45 +89,53 @@
       <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.InputSystem.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.InputSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.InputSystem.ForUI.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.InputSystem.ForUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem.RebindingUI">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.InputSystem.RebindingUI.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.InputSystem.RebindingUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.Mathematics.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Mathematics.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.Mathematics.Extensions.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Mathematics.Extensions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions.Hybrid">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\UnityEngine.InputModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Kitchen">
       <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Kitchen.dll</HintPath>
       <Private>False</Private>
     </Reference>
-	  <Reference Include="Unity.Collections.LowLevel.ILSupport">
-		  <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
-		  <Private>False</Private>
-	  </Reference>
     <Reference Include="KitchenMods">
       <HintPath>$(PlateUpDir)\PlateUp_Data\Managed\KitchenMods.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputModule">
-      <HintPath>E:\Steam\steamapps\common\PlateUp\PlateUp\PlateUp_Data\Managed\UnityEngine.InputModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 
